@@ -1,4 +1,4 @@
 FROM openjdk:8-jre
 ARG JAR_FILE
-COPY ${JAR_FILE} app.jar
-ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","/app.jar"]
+COPY myproject.jar /
+ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","/myproject.jar"]

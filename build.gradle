@@ -24,14 +24,13 @@ test {
 }
 
 docker {
-    dependsOn build
+    dependsOn(build)
     name "${project.group}/${jar.baseName}"
-    files bootJar.archivePath
-    buildArgs(['JAR_FILE': "${bootJar.archiveName}"])
+    files bootJar
 }
 
 bootJar {
-    baseName = 'DevOps'
+    archiveName 'myproject.jar'
 }
 
 project.version = scmVersion.version
