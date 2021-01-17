@@ -22,4 +22,15 @@ dependencies {
 test {
     useJUnitPlatform()
 }
+
+docker {
+    name "${project.group}/${jar.baseName}"
+    files jar.archivePath
+    buildArgs(['JAR_FILE': "${jar.archiveName}"])
+}
+
+bootJar {
+    baseName = 'DevOps'
+}
+
 project.version = scmVersion.version
