@@ -24,9 +24,10 @@ test {
 }
 
 docker {
+    dependsOn build
     name "${project.group}/${jar.baseName}"
-    files jar.archivePath
-    buildArgs(['JAR_FILE': "${jar.archiveName}"])
+    files bootJar.archivePath
+    buildArgs(['JAR_FILE': "${bootJar.archiveName}"])
 }
 
 bootJar {

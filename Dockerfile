@@ -1,6 +1,4 @@
-FROM openjdk:8
-EXPOSE 8080
-VOLUME /tmp
+FROM openjdk:8-jre
 ARG JAR_FILE
-ADD ${JAR_FILE} devops.jar
-ENTRYPOINT ["java","-jar","devops.jar"]
+COPY ${JAR_FILE} app.jar
+ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","/app.jar"]
